@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie - Delicious Food Delivered</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav h1 {
+            color: #4a90e2;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #4a90e2;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        section {
+            margin-bottom: 50px;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2d3436;
+        }
+
+        #intro {
+            display: flex;
+            gap: 20px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .intro-text {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .intro-text h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #2d3436;
+        }
+
+        .intro-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .search-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .search-container input, .search-container select {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        .category-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 0;
+        }
+
+        .category-item {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .category-item:hover {
+            transform: scale(1.05);
+            background-color: #e6f2ff;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            width: 300px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card h3 {
+            margin: 0 0 10px 0;
+        }
+
+        .card p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .offers-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .offer-card {
+            background: #ffeaa7;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+            border: 2px dashed #fdcb6e;
+        }
+
+        footer {
+            background-color: #2d3436;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: #74b9ff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            #intro {
+                flex-direction: column;
+            }
+
+            .search-container input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>Foodie</h1>
+        <ul>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#restaurants">Restaurants</a></li>
+            <li><a href="#offers">Offers</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+        </ul>
+        <div>
+            <button>Login</button>
+            <button>Sign Up</button>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <section id="intro">
+            <div class="intro-text">
+                <h1>Delicious food,<br>delivered to you</h1>
+                <p>Order from your favorite restaurants and get your meal delivered fast, fresh, and hot. Discover the best food in your city with Foodie!</p>
+                <br> 
+                <button>Order Now</button>
+            </div>
+            
+            <div class="intro-image">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Delicious Food Table">
+            </div>
+        </section>
+
+        <section class="search-container">
+            <form>
+                <label for="location">Location:</label>
+                <input type="text" id="location" placeholder="Enter your location">
+                
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option>All Categories</option>
+                    <option>Fast Food</option>
+                    <option>Fine Dining</option>
+                    <option>Healthy</option>
+                </select>
+                
+                <button type="button">Search</button>
+            </form>
+        </section>
+
+        <section id="categories">
+            <h2>Browse by Category</h2>
+            <ul class="category-list">
+                <li class="category-item"><span>🍕</span> Pizza</li>
+                <li class="category-item"><span>🍔</span> Burgers</li>
+                <li class="category-item"><span>🍣</span> Sushi</li>
+                <li class="category-item"><span>🍲</span> Indian</li>
+                <li class="category-item"><span>🍜</span> Chinese</li>
+                <li class="category-item"><span>🧁</span> Desserts</li>
+                <li class="category-item"><span>🥤</span> Drinks</li>
+                <li class="category-item"><span>🌮</span> Mexican</li>
+                <li class="category-item"><span>🥗</span> Salads</li>
+            </ul>
+        </section>
+
+        <section id="restaurants">
+            <h2>Featured Restaurants</h2>
+            
+            <div class="card-container">
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Pizza Palace">
+                    <div class="card-content">
+                        <h3>Pizza Palace</h3>
+                        <p><strong>Rating:</strong> 4.8/5</p>
+                        <p>Pizza, Italian</p>
+                        <small>20-30 min</small>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Burger Hub">
+                    <div class="card-content">
+                        <h3>Burger Hub</h3>
+                        <p><strong>Rating:</strong> 4.6/5</p>
+                        <p>Burgers, Fast Food</p>
+                        <small>15-25 min</small>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" alt="Sushi World">
+                    <div class="card-content">
+                        <h3>Sushi World</h3>
+                        <p><strong>Rating:</strong> 4.7/5</p>
+                        <p>Sushi, Japanese</p>
+                        <small>30-45 min</small>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="offers">
+            <h2>Promo Offers</h2>
+            <ul class="offers-list">
+                <li class="offer-card">
+                    <h3>🎉 30% OFF</h3>
+                    <p>On your first order</p>
+                    <button>Claim Now</button>
+                </li>
+                <li class="offer-card">
+                    <h3>🚚 Free Delivery</h3>
+                    <p>On orders above $20</p>
+                    <button>Learn More</button>
+                </li>
+                <li class="offer-card">
+                    <h3>🍔 Buy 1 Get 1</h3>
+                    <p>On burgers every Friday</p>
+                    <button>Order Now</button>
+                </li>
+            </ul>
+        </section>
+
+        <section id="testimonials">
+            <h2>What Our Customers Say</h2>
+            <div class="card-container">
+                <article class="card">
+                    <div class="card-content" style="text-align: center;">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah M." style="width: 60px; height: 60px; border-radius: 50%;">
+                        <p>★★★★★</p>
+                        <p>"Foodie makes ordering food so easy and quick! The delivery is always on time."</p>
+                        <p><strong>Sarah M.</strong></p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-content" style="text-align: center;">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James L." style="width: 60px; height: 60px; border-radius: 50%;">
+                        <p>★★★★★</p>
+                        <p>"Great selection of restaurants and amazing offers. Highly recommend!"</p>
+                        <p><strong>James L.</strong></p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-content" style="text-align: center;">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya S." style="width: 60px; height: 60px; border-radius: 50%;">
+                        <p>★★★★★</p>
+                        <p>"The app is super user-friendly and the customer support is fantastic."</p>
+                        <p><strong>Priya S.</strong></p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <h3>Foodie</h3>
+        <nav style="background: none; justify-content: center; box-shadow: none;">
+            <a href="#">About Us</a> | 
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms</a> | 
+            <a href="#">Contact</a>
+        </nav>
+        <p>Follow us on: Facebook | Twitter | Instagram</p>
+        <p>&copy; 2025 Foodie. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
